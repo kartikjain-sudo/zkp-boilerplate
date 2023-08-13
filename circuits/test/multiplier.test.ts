@@ -34,9 +34,20 @@ describe("Multiplier circuit", function () {
       assert(err.message.includes("Not enough values for input signal in"));
     }
   });
-  it("Should fail input is not the same for which proof was generated", async function () {
+  it("Should fail because both the numbers are equal", async function () {
     const input = {
       in: [2, 2]
+    };
+    try {
+      const a = await multiplierCircuit.calculateWitness(input);
+    } catch (err) {
+    //   console.log(err);
+      assert(err.message.includes("Assert Failed"));
+    }
+  });
+  it("Should fail because the number is greater than 5", async function () {
+    const input = {
+      in: [2, 7]
     };
     try {
       const a = await multiplierCircuit.calculateWitness(input);

@@ -143,7 +143,7 @@ describe("Multiplier", function () {
   it("Should return true for valid proof on-chain", async function () {
 
     let dataResult = await generateProof(
-      2, 5,
+      1, 4,
       'multiplier',
     );
 
